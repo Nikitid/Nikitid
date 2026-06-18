@@ -4,8 +4,8 @@ learning random stuff and other things
 
 ## Projects
 
-- MTProxy Manager  
-  https://github.com/Nikitid/mtproxy-manager
+- IKEv2 Manager for OpenWRT
   
-- IKEv2 Manager  
+  
+- IKEv2 Manager for Ubuntu
   https://github.com/Nikitid/ikev2-manager
