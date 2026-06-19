@@ -1,7 +1,3 @@
-# Nikitid
-
-Building practical tools for VPN infrastructure, OpenWrt, and media automation.
-
 ## Projects
 
 ### [IKEv2 Manager for OpenWrt](https://github.com/Nikitid/ikev2-manager-openwrt)
@@ -15,7 +11,3 @@ Interactive Bash manager for deploying and maintaining a strongSwan IKEv2/IPsec 
 ### [MKV Auto Merger](https://github.com/Nikitid/mkv-auto-merger)
 
 Python tool that prepares tracker-style anime and TV folders for Jellyfin, matching external dubbed audio and producing a clean season structure.
-
-## Current focus
-
-Reliable networking tools with safe defaults, understandable interfaces, reproducible releases, and practical recovery paths.
