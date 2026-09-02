@@ -1,0 +1,36 @@
+name: Rebuild profile README
+
+# The hand-maintained list went stale: it named two repositories by names they
+# no longer carry and omitted six that exist. Generating it removes the class.
+on:
+  schedule:
+    - cron: "23 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-readme
+  cancel-in-progress: false
+
+jobs:
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Rebuild
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./scripts/build-readme.sh Nikitid README.md
+      - name: Commit when changed
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "README is already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Rebuild the profile project list"
+          git push
