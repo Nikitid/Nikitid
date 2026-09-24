@@ -28,11 +28,29 @@ repos="$(gh api --paginate "users/$user/repos?per_page=100&sort=pushed" \
         | select(.name != "'"$user"'")
         | {name, description, language, pushed_at, topics}')"
 
+# The product name is the first-line title of each README, so the profile shows
+# what a user sees in the application next to the repository it lives in. A
+# repository whose README cannot be read is listed by its name alone.
+titled=""
+while IFS= read -r repo; do
+  name="$(printf '%s\n' "$repo" | jq -r .name)"
+  title="$(gh api "repos/$user/$name/readme" --jq .content 2>/dev/null |
+    base64 -d 2>/dev/null | sed -n '1s/^# //p' || true)"
+  titled="$titled$(printf '%s\n' "$repo" | jq -c --arg t "$title" '. + {title: (if $t == "" then null else $t end)}')
+"
+done <<EOF_REPOS
+$(printf '%s\n' "$repos" | jq -c .)
+EOF_REPOS
+repos="$titled"
+
 # Render one line per repository. A repository is placed in the first group
 # whose topic it carries, so carrying two of them lists it once rather than
 # twice.
-line_filter='"- **[\(.name)](https://github.com/'"$user"'/\(.name))**"
-  + (if (.description // "") == "" then "" else " — \(.description)" end)
+# jq expressions: the $ and \( belong to jq, not the shell.
+# shellcheck disable=SC2016
+line_filter='"- **[\(.title // .name)](https://github.com/'"$user"'/\(.name))**"
+  + (if (.title // "") == "" then "" else " (`\(.name)`)" end)
+  + (if (.description // "") == "" then "" else " - \(.description)" end)
   + (if (.language // "") == "" then "" else "  `\(.language)`" end)'
 
 ordered_topics="$(for pair in $GROUP_LIST; do printf '%s\n' "${pair%%:*}"; done |
@@ -40,6 +58,8 @@ ordered_topics="$(for pair in $GROUP_LIST; do printf '%s\n' "${pair%%:*}"; done 
 
 # group_of: the index of the first group topic the repository carries, or the
 # count of groups when it carries none, which is the Other bucket.
+# jq expressions: the $ and \( belong to jq, not the shell.
+# shellcheck disable=SC2016
 assign='. as $r
   | ($known | map(. as $t | ($r.topics // []) | index($t) | if . then 1 else 0 end))
   | (index(1) // ($known | length)) as $g
