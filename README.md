@@ -11,7 +11,3 @@
 ### VPN
 
 - **[IKEv2 Manager for Ubuntu](https://github.com/Nikitid/ikev2-ubuntu)** (`ikev2-ubuntu`) - Interactive Bash manager for an IKEv2/IPsec server on Ubuntu 22.04, 24.04 and 26.04.  `Shell`
-
-### Media
-
-- **[MKV Auto Merger for Jellyfin](https://github.com/Nikitid/mkv-auto-merger)** (`mkv-auto-merger`) - Prepare TV and anime folders with external audio tracks for Jellyfin.  `Python`
