@@ -11,3 +11,7 @@
 ### VPN
 
 - **[IKEv2 Manager for Ubuntu](https://github.com/Nikitid/ikev2-ubuntu)** (`ikev2-ubuntu`) - Interactive Bash manager for an IKEv2/IPsec server on Ubuntu 22.04, 24.04 and 26.04.  `Shell`
+
+### Other
+
+- **[WeExport for macOS](https://github.com/Nikitid/weexport)** (`weexport`) - Browse and export local WeChat history on macOS.  `Python`
