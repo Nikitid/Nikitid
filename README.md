@@ -14,4 +14,4 @@
 
 ### Other
 
-- **[WeExport for macOS](https://github.com/Nikitid/weexport)** (`weexport`) - Browse and export local WeChat history on macOS.  `Python`
+- **[WeExport updates for macOS](https://github.com/Nikitid/weexport-updates)** (`weexport-updates`) - Installers and signed updates for WeExport
