@@ -14,4 +14,4 @@
 
 ### Other
 
-- **[WeExport updates for macOS](https://github.com/Nikitid/weexport-updates)** (`weexport-updates`) - Installers and signed updates for WeExport
+- **[WeExport updates for macOS](https://github.com/Nikitid/weexport-updates)** (`weexport-updates`) - Installers and signed updates for WeExport  `Shell`
