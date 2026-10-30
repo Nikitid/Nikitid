@@ -14,4 +14,5 @@
 
 ### Other
 
+- **[keyboard-lab-releases](https://github.com/Nikitid/keyboard-lab-releases)** - Keyboard Lab downloads and signed update feeds. Application source is private.
 - **[WeExport updates for macOS](https://github.com/Nikitid/weexport)** (`weexport`) - Installers and signed updates for WeExport  `Python`
