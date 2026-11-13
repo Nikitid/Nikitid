@@ -8,10 +8,6 @@
 - **[MTProto Monitor for OpenWrt](https://github.com/Nikitid/luci-app-mtproto-monitor)** (`luci-app-mtproto-monitor`) - LuCI application for monitoring local Telegram MTProto proxies and their WAN exposure.  `Shell`
 - **[Overview Manager for OpenWrt](https://github.com/Nikitid/luci-app-overview-manager)** (`luci-app-overview-manager`) - LuCI application for ordering and hiding widgets on the OpenWrt Status Overview page.  `JavaScript`
 
-### VPN
-
-- **[IKEv2 Manager for Ubuntu](https://github.com/Nikitid/ikev2-ubuntu)** (`ikev2-ubuntu`) - Interactive Bash manager for an IKEv2/IPsec server on Ubuntu 22.04, 24.04 and 26.04.  `Shell`
-
 ### Other
 
 - **[WeExport updates for macOS](https://github.com/Nikitid/weexport)** (`weexport`) - Installers and signed updates for WeExport  `Python`
